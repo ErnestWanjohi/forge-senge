@@ -1,0 +1,34 @@
+modules:
+  jira:projectPage:
+    - key: senge-project-page
+      resource: main
+      resolver:
+        function: resolver
+      render: native
+      title: Senge
+
+  function:
+    - key: resolver
+      handler: index.handler
+      # ⚡ Define scopes per function
+      permissions:
+        scopes:
+          - read:jira-work
+
+resources:
+  - key: main
+    path: src/frontend/index.jsx
+
+app:
+  id: ari:cloud:ecosystem::app/ea8ec0a0-748d-4e54-9550-190e5d7bed50
+  runtime:
+    name: nodejs24.x
+    memoryMB: 256
+    architecture: arm64
+permissions:
+  scopes:
+    - read:board-scope:jira-software
+    - read:project:jira
+    - read:sprint:jira-software
+    - read:issue-details:jira
+    - read:jql:jira
