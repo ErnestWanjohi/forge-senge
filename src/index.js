@@ -34,7 +34,7 @@ export const handler = async (event, context) => {
 
     return {
       sprint: sprintData.values[0].name,
-      issueCount: issuesData.issues.length
+      issueCount: issuesData.issues.length,
     };
 
   } catch (error) {
